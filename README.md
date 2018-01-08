@@ -1,5 +1,6 @@
 # Stock Correlations and Price History
-
+Nordin Bouchrit	
+11050608
 ## Problem statement
 
 Investing in stocks is becoming increasingly popular. Due to the complexity, this space is quite inaccesible for people without a financial background. There are no clear connections between the stocks and it seems to behave quite randomly.
