@@ -1,5 +1,5 @@
 # Stock Correlations and Price History
-Nordin Bouchrit	
+Nordin Bouchrit <br />	
 11050608
 ## Problem statement
 
