@@ -7,3 +7,63 @@ body {
 	background-color: #ededed;
 }
 
+/* header style */
+.stock-market-nav {
+	background-color: #212121 !important;
+	box-shadow: 0 4px 2px -2px gray;
+}
+
+.stock-market-nav a {
+	color: #FAFAFA !important;
+}
+
+.dropdown-menu a {
+	color: #212121 !important;
+}
+
+/* content style */
+
+.network-container {
+	max-width: 1300px;
+	width: 100%;
+	background-color: #fff !important;
+}
+
+.support-graphs-container {
+	max-width: 1300px;
+	width: 100%;
+	background-color: #fff !important;	
+}
+
+.graph-title {
+	margin-top:50px;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.network-div {
+	margin-top: 30px;
+}
+
+.price-chart-div {
+	margin-top: 30px;
+}
+
+.correlation-matrix-div {
+	margin-top: 30px;
+}
+
+
+/* footer style */
+
+.footer-container {
+	background-color: #E0E0E0;
+	height: 50px;
+}
+
+.footer-content {
+	padding-top: 15px;
+}
+
+
+
