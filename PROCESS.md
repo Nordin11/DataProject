@@ -1,11 +1,9 @@
 
 # Process Book
 #### Mon 8 - Wed 10 January:
-<br />
 - Finished deadlines concerning the dates
 
 #### Thu 11 January:
-<br />
 - Finished Data Gathering
 - Getting html template "D3 ready"
 - Finished main website layout via bootstrap 
