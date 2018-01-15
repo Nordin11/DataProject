@@ -10,8 +10,8 @@
 	<head> 
 		<title>D3 Finance</title>
 		<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
-		<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" type='text/css'/>
-		<link rel="stylesheet" href="css/main.css" type='text/css'/>
+		<link rel="stylesheet" href="code/css/bootstrap/bootstrap.min.css" type='text/css'/>
+		<link rel="stylesheet" href="code/css/main.css" type='text/css'/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8">
 	</head>
@@ -55,7 +55,7 @@
 			</div>
 			<div class="container-fluid">
 				<div class="d-flex justify-content-center network-div">
-					Network Graph PlaceHolder
+					network graph placeholder
 				</div>
 			</div>
 		</div>
@@ -67,7 +67,7 @@
 					<div class="col-sm-6">
 						<center>
 							<h1 class="graph-title"> Correlation Matrix </h1>
-						<div class="d-flex justify-content-center correlation-matrix-div">
+						<div class="d-flex justify-content-center" id="correlation-matrix-div">
 							correlation matrix placeholder
 						</div>
 						</center>
@@ -75,7 +75,7 @@
 					<div class="col-sm-6">
 						<center>
 							<h1 class="graph-title"> Price Charts </h1>
-						<div class="d-flex justify-content-center price-chart-div">
+						<div class="d-flex justify-content-center" id="price-chart-div">
 							price charts placeholder
 						</div>
 						</center>
@@ -83,30 +83,26 @@
 				</div>
 			</div>
 		</div>
-
 		<!-- END CONTENT AREA -->
 
-
-		<!-- DISAPPEAR IN SMALL SCREEN MODE -->
+		<!-- START FOOTER -->
 		<footer>
 			<div class="container-fluid footer-container">
-			
-					<div class="d-flex justify-content-left footer-content"> 
-						<a> &copy; Nordin Bouchrit </a> 
-						<a> &nbsp;| 11050608
-					</div>
-
-					
+				<div class="d-flex justify-content-left footer-content"> 
+					<a> &copy; Nordin Bouchrit </a> 
+					<a> &nbsp;| 11050608
+				</div>
 			</div>
 		</footer>
+		<!-- END FOOTER -->
 
 
 		<script type="text/javascript" src="d3/d3.min.js"></script>
 		<script type="text/javascript" src="d3/d3-tip.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="code/js/main.js"></script>
 		<script src="http://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+		<script type="text/javascript" src="code/js/bootstrap/bootstrap.min.js"></script>
 		
 
 	</body>
