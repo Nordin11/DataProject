@@ -11,6 +11,7 @@
 - Finished main website layout via bootstrap 
 
 #### Mon 15 January: 
+- Add process book to GitHub
 <br />
 
 #### Tue 16 January: 
