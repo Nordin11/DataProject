@@ -10,22 +10,28 @@
 
 #### Mon 15 January: 
 - Add process book to GitHub
-<br />
+- Loading price_history data
+- Adding price charts
+- Had some troubles in reforming the date
+- Struggled in getting the lines in the graph, still struggling so I will need support at Tuesday 
+
 
 #### Tue 16 January: 
-<br />
+- Start first in the morning with the correlation matrix
+- I think I will have some troubles in linking the recs to variables
+
 
 #### Wed 17 January: 
-<br />
+
 
 #### Thu 18 January:
-<br />
+
 
 #### Mon 22 January:
-<br />
+
 
 #### Tue 23 January:
-<br />
+
 
 #### Wed 24 January: 
 <br />

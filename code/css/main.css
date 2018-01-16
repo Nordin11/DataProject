@@ -7,6 +7,12 @@ body {
 	background-color: #ededed;
 }
 
+svg {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+} 
+
 /* header style */
 .stock-market-nav {
 	background-color: #212121 !important;
@@ -30,7 +36,7 @@ body {
 }
 
 .support-graphs-container {
-	max-width: 1300px;
+	max-width: 1500px;
 	width: 100%;
 	background-color: #fff !important;	
 }
@@ -63,6 +69,27 @@ body {
 
 .footer-content {
 	padding-top: 15px;
+}
+
+/* style rules for x and y axis */
+.axis path,
+.axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+
+/* axis label style rule */
+.label {
+	font-size: 11px;
+}
+
+/* data style rules */
+.line {
+  fill: none;
+  color: red;
+  stroke-width: 2px;
 }
 
 
