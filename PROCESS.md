@@ -13,12 +13,12 @@
 - Loading price_history data
 - Adding price charts
 - Had some troubles in reforming the date
-- Struggled in getting the lines in the graph, still struggling so I will need support at Tuesday 
-
 
 #### Tue 16 January: 
 - Start first in the morning with the correlation matrix
-- I think I will have some troubles in linking the recs to variables
+- Had some version issues
+- Converted everything to Version 3 
+- Finished the first correlation visualization  
 
 
 #### Wed 17 January: 

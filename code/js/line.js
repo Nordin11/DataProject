@@ -4,7 +4,7 @@
 function load() {
 
 	// define margins 
-	var margin = { top: 40, right: 30, bottom: 40, left: 37  },
+	var margin = { top: 40, right: 37, bottom: 40, left: 37  },
 		width = 1200 - margin.right - margin.left,
 		height = 600 - margin.top - margin.bottom;
 
@@ -15,8 +15,6 @@ function load() {
 	  	   .append("g")
 			.attr("transform", 
 			  	  "translate(" + margin.left + ',' + margin.right + ')');
-
-	var parseTime = d3.timeParse("Y%-%m-%d");
 
 	function customDate(str) {
 		var y = str.substr(0,4)
@@ -39,10 +37,10 @@ function load() {
   		return colors_l[n];
 	}
 	// define the x y scales
-	var x = d3.scaleTime()
+	var x = d3.time.scale()
 		.range([0, width - margin.right * 2.5]);
 		
-	var y = d3.scaleLinear()
+	var y = d3.scale.linear()
 		// make sure the height goes upwards in stead of top to bottom
 		.range([height, 0]);
 
@@ -82,103 +80,103 @@ function load() {
 		});
 
 		// define line of every stock
-		var lineAAPL = d3.line()
+		var lineAAPL = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.AAPL); });
 
-		var lineAMZN = d3.line()
+		var lineAMZN = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.AMZN); });
 
-		var lineBABA = d3.line()
+		var lineBABA = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.BABA); });
 
-		var lineBAC = d3.line()
+		var lineBAC = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.BAC); });
 
-		var lineBP = d3.line()
+		var lineBP = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.BP); });
 
-		var lineBUD = d3.line()
+		var lineBUD = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.BUD); });
 
-		var lineC = d3.line()
+		var lineC = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.C); });
 
-		var lineCMCSA = d3.line()
+		var lineCMCSA = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.CMCSA); });
 
-		var lineCVX = d3.line()
+		var lineCVX = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.CVX); });
 
-		var lineFB = d3.line()
+		var lineFB = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.FB); });
 
-		var lineGOOGL = d3.line()
+		var lineGOOGL = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.GOOGL); });
 
-		var lineHD = d3.line()
+		var lineHD = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.HD); });
 
-		var lineJPM = d3.line()
+		var lineJPM = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.JPM); });
 
-		var lineKO = d3.line()
+		var lineKO = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.KO); });
 
-		var lineMSFT = d3.line()
+		var lineMSFT = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.MSFT); });
 
-		var linePG = d3.line()
+		var linePG = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.PG); });
 
-		var linePTR = d3.line()
+		var linePTR = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.PTR); });
 
-		var lineRDSB = d3.line()
+		var lineRDSB = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.RDSB); });
 
-		var lineT = d3.line()
+		var lineT = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.T); });
 
-		var lineTM = d3.line()
+		var lineTM = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.TM); });
 
-		var lineV = d3.line()
+		var lineV = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.V); });
 
-		var lineVZ = d3.line()
+		var lineVZ = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.VZ); });
 
-		var lineWFC = d3.line()
+		var lineWFC = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.WFC); });
 
-		var lineWMT = d3.line()
+		var lineWMT = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.WMT); });
 
-		var lineXOM = d3.line()
+		var lineXOM = d3.svg.line()
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.XOM); });
 
@@ -355,18 +353,25 @@ function load() {
 		    .attr("class", "line")
 		    .attr("d", lineXOM)
 		    .attr("stroke", function(d,i) { return colors_linechart(25); } );   
-		        
+		
+		// Define the axes
+		var xAxis = d3.svg.axis().scale(x)
+    		.orient("bottom");
+
+		var yAxis = d3.svg.axis().scale(y)
+    		.orient("left");
+    		      
 		// Add xAxis to svg       
     	svg.append("g")
 	    	.attr("class", "x axis")
 	        .attr("transform", "translate(0," + height + ")") 
-	        .call(d3.axisBottom(x))
+	        .call(xAxis)
 	        .style("font-size", "11px");
 		
 		// Add yAxis to svg 
 		svg.append("g")
             .attr("class", "y axis")
-            .call(d3.axisLeft(y))
+            .call(yAxis)
             .style("font-size", "11px")
  
 	});
