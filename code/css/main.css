@@ -88,7 +88,6 @@ svg {
 /* data style rules */
 .line {
   fill: none;
-  color: red;
   stroke-width: 2px;
 }
 

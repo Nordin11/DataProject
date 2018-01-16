@@ -25,6 +25,19 @@ function load() {
 		return new Date(y,m,d)
 	}
 
+	function colors_linechart(n) {
+  		var colors_l = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
+		  '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
+		  '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A', 
+		  '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
+		  '#66994D', '#B366CC', '#4D8000', '#B33300', '#CC80CC', 
+		  '#66664D', '#991AFF', '#E666FF', '#4DB3FF', '#1AB399',
+		  '#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680', 
+		  '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
+		  '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3', 
+	      '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'];
+  		return colors_l[n];
+	}
 	// define the x y scales
 	var x = d3.scaleTime()
 		.range([0, width - margin.right * 2.5]);
@@ -37,15 +50,10 @@ function load() {
 	d3.csv("data/price_history.csv", function(error, data){
 		// check for errors
 		if(error) console.log("Error: data not loaded")
-
-		
 		
 		// convert data in proper format
 		data.forEach(function(d) {
-			console.log(d.DATE)
-			console.log(typeof(d.DATE))
 			d.DATE = customDate(d.DATE);
-			console.log(d.DATE)
 			d.AAPL = +d.AAPL;
 			d.AMZN = +d.AMZN;
 			d.BABA = +d.BABA;
@@ -72,9 +80,6 @@ function load() {
 			d.WMT = +d.WMT;
 			d.XOM = +d.XOM;
 		});
-
-	
-
 
 		// define line of every stock
 		var lineAAPL = d3.line()
@@ -177,6 +182,8 @@ function load() {
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.XOM); });
 
+		console.log(lineAAPL)
+
 		// specify the domains of xscale yscale
 		x.domain(d3.extent(data, function(d) { return d.DATE; }) );
 		y.domain([0, d3.max(data, function(d) {
@@ -187,8 +194,168 @@ function load() {
 		svg.append("path")
 		    .data([data])
 		    .attr("class", "line")
-		    .attr("d", lineAAPL);
-		    
+		    .attr("d", lineAAPL)
+		    .attr("stroke", function(d,i) { return colors_linechart(0); } );
+
+		// Add the valueline path.
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineAMZN)
+		    .attr("stroke", function(d,i) { return colors_linechart(1); } );
+
+
+		// Add the valueline path.
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineBABA)
+		    .attr("stroke", function(d,i) { return colors_linechart(2); } );
+
+		// Add the valueline path.
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineBAC)
+		    .attr("stroke", function(d,i) { return colors_linechart(5); } );
+
+		// Add the valueline path.
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineBP)
+		    .attr("stroke", function(d,i) { return colors_linechart(4); } );
+
+		// Add the valueline path.
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineBUD)
+		    .attr("stroke", function(d,i) { return colors_linechart(6); } );
+
+		// Add the valueline path.
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineC)
+		    .attr("stroke", function(d,i) { return colors_linechart(7); } );
+
+		// Add the valueline path.
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineCMCSA)
+		    .attr("stroke", function(d,i) { return colors_linechart(8); } );
+
+		// Add the valueline path.
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineCVX)
+		    .attr("stroke", function(d,i) { return colors_linechart(9); } );
+
+		// Add the valueline path.
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineFB)
+		    .attr("stroke", function(d,i) { return colors_linechart(10); } );	 
+
+		// Add the valueline path.
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineGOOGL)
+		    .attr("stroke", function(d,i) { return colors_linechart(11); } );	
+
+		// Add the valueline path.
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineHD)
+		    .attr("stroke", function(d,i) { return colors_linechart(12); } );
+
+		// Add the valueline path.
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineJPM)
+		    .attr("stroke", function(d,i) { return colors_linechart(13); } );
+
+		// Add the valueline path.
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineKO)
+		    .attr("stroke", function(d,i) { return colors_linechart(14); } );
+
+		// Add the valueline path.
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineMSFT)
+		    .attr("stroke", function(d,i) { return colors_linechart(15); } );
+
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", linePG)
+		    .attr("stroke", function(d,i) { return colors_linechart(16); } );
+
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", linePTR)
+		    .attr("stroke", function(d,i) { return colors_linechart(17); } );
+
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineRDSB)
+		    .attr("stroke", function(d,i) { return colors_linechart(18); } );
+
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineT)
+		    .attr("stroke", function(d,i) { return colors_linechart(19); } );
+
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineTM)
+		    .attr("stroke", function(d,i) { return colors_linechart(20); } );
+
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineV)
+		    .attr("stroke", function(d,i) { return colors_linechart(21); } );
+
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineVZ)
+		    .attr("stroke", function(d,i) { return colors_linechart(22); } );
+
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineWFC)
+		    .attr("stroke", function(d,i) { return colors_linechart(23); } );
+		
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineWMT)
+		    .attr("stroke", function(d,i) { return colors_linechart(24); } );	
+
+		svg.append("path")
+		    .data([data])
+		    .attr("class", "line")
+		    .attr("d", lineXOM)
+		    .attr("stroke", function(d,i) { return colors_linechart(25); } );   
+		        
 		// Add xAxis to svg       
     	svg.append("g")
 	    	.attr("class", "x axis")
@@ -202,7 +369,6 @@ function load() {
             .call(d3.axisLeft(y))
             .style("font-size", "11px")
  
-
 	});
 		
 }
