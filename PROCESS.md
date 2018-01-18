@@ -12,7 +12,7 @@
 - Add process book to GitHub
 - Loading price_history data
 - Adding price charts
-- Had some troubles in reforming the date
+- Had some troubles in reforming the date in to a proper format  
 
 #### Tue 16 January: 
 - Start first in the morning with the correlation matrix
@@ -20,13 +20,15 @@
 - Converted everything to Version 3 
 - Finished the first correlation visualization  
 
-
 #### Wed 17 January: 
 - Worked on style guide 
-- Didn't code this day
+- Didn't code this day because I had to think about how to transform the correlation data in to a proper JSON format so that I can work on it for the network graph.
 
 #### Thu 18 January:
-- 
+- Write and test the algorithm that transforms the data in to a good network format
+- Wrote the algorithm for the transformation of the JSON Data in python.
+- Also thought about transforming the price history data, I want the data to be normalized instead of the adjusted close price. This gives a lot more meaning to the line chart. 
+- Transformed the price history data in to normalized data in python.
 
 #### Mon 22 January:
 
