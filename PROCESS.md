@@ -22,10 +22,11 @@
 
 
 #### Wed 17 January: 
-
+- Worked on style guide 
+- Didn't code this day
 
 #### Thu 18 January:
-
+- 
 
 #### Mon 22 January:
 
