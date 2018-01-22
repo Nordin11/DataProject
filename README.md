@@ -1,6 +1,9 @@
 # Stock Correlations and Price History
 Nordin Bouchrit <br />	
 11050608
+<br />
+Project Link: https://nordin11.github.io/DataProject/
+<br />
 ## Problem statement
 
 Investing in stocks is becoming increasingly popular. Due to the complexity, this space is quite inaccesible for people without a financial background. There are no clear connections between the stocks and it seems to behave quite randomly.
