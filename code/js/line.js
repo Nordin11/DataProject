@@ -5,7 +5,7 @@
 function load() {
 
 	// define margins 
-	var margin = { top: 40, right: 37, bottom: 40, left: 37  },
+	var margin = { top: 40, right: 37, bottom: 40, left: 60  },
 		width = 1200 - margin.right - margin.left,
 		height = 600 - margin.top - margin.bottom;
 
@@ -23,7 +23,6 @@ function load() {
 		var d = str.substr(8,2)
 		return new Date(y,m,d)
 	}
-
 
 	function colors_linechart(n) {
   		var colors_l = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
@@ -182,7 +181,6 @@ function load() {
 			.x(function(d) { return x(d.DATE); })
 			.y(function(d) { return y(d.XOM); });
 
-		console.log(lineAAPL)
 
 		// specify the domains of xscale yscale
 		x.domain(d3.extent(data, function(d) { return d.DATE; }) );
@@ -375,7 +373,16 @@ function load() {
             .attr("class", "y axis")
             .call(yAxis)
             .style("font-size", "11px")
- 
+ 		
+		svg.append("text")
+			.attr("class", "y-ax-title")
+		    .attr("x", -30)
+		    .attr("y", -45)
+		    .attr("dy", ".32em")
+		    .attr("text-anchor", "end")
+		    .text("Average price change");
+
+		
 	});
 		
 }

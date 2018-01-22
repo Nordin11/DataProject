@@ -31,12 +31,12 @@
 		      		</li>
 		      		<li class="nav-item dropdown">
 		        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Industries</a>
-			        	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			          		<a class="dropdown-item" href="#">Finance</a>
-			         		<a class="dropdown-item" href="#">Technology</a>
-			          		<a class="dropdown-item" href="#">Services</a>
-			          		<a class="dropdown-item" href="#">Materials</a>
-			          		<a class="dropdown-item" href="#">Goods</a>
+			        	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="industryName">
+			          		<a class="dropdown-item financeTrigger">Finance</a>
+			         		<a class="dropdown-item techTrigger">Technology</a>
+			          		<a class="dropdown-item servicesTrigger">Services</a>
+			          		<a class="dropdown-item materialsTrigger">Materials</a>
+			          		<a class="dropdown-item goodsTrigger">Goods</a>
 			        	</div>
 		      		</li>
 		    	</ul>
@@ -66,9 +66,30 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<center>
-							<h1 class="graph-title"> Correlation Matrix </h1>
-						<div class="d-flex justify-content-center" id="correlation-matrix-div">
-						
+						<div class="finance-matrix">
+							<div class="d-flex justify-content-center" id="finance-matrix-div">
+							
+							</div>
+						</div>
+						<div class="tech-matrix">
+							<div class="d-flex justify-content-center" id="tech-matrix-div">
+							
+							</div>
+						</div>
+						<div class="services-matrix">
+							<div class="d-flex justify-content-center" id="services-matrix-div">
+							
+							</div>
+						</div>
+						<div class="materials-matrix">
+							<div class="d-flex justify-content-center" id="materials-matrix-div">
+							
+							</div>
+						</div>
+						<div class="goods-matrix">
+							<div class="d-flex justify-content-center" id="goods-matrix-div">
+							
+							</div>
 						</div>
 						</center>
 					</div>
@@ -97,6 +118,9 @@
 		<!-- END FOOTER -->
 
 
+		<script src="http://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+		
 		<script type="text/javascript" src="d3/d3.min.js"></script>
 		
 		<script type="text/javascript" src="d3/d3-tip.js"></script>
@@ -106,10 +130,7 @@
 		<script type="text/javascript" src="code/js/network.js"></script>
 		<script type="text/javascript" src="code/js/interactions.js"></script>
 
-		<script src="http://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="code/js/bootstrap/bootstrap.min.js"></script>
-		
 
 	</body>
 

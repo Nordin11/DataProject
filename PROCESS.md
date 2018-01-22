@@ -31,7 +31,10 @@
 - Transformed the price history data in to normalized data in python.
 
 #### Mon 22 January:
-
+- Worked on interactions of the correlation matrix
+- such as te color mapping and hover interactions
+- have some difficulties in hiding and showing the correlation matrix when clicking on the dropdown items
+- added GitHub pages to project, but doesn't seem to load jQuery, will try to fix this tomorrow. 
 
 #### Tue 23 January:
 

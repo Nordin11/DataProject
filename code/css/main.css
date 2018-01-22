@@ -27,7 +27,6 @@ svg {
 	color: #212121 !important;
 }
 
-/* content style */
 
 /* network style */
 .network-container {
@@ -50,6 +49,12 @@ svg {
   stroke-width: 1.5px;
 }
 
+/* Matrix style */
+
+.matrix-title {
+	color: #000;
+	font-size: 20px;
+}
 
 /* Chart style */
 .support-graphs-container {
@@ -73,6 +78,15 @@ svg {
 	fill: none;
 	stroke: #000;
 	shape-rendering: crispEdges;
+}
+
+.y-ax-title {
+	font-size: 12px;
+	font-weight: 0.2;
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
 }
 
 .label {

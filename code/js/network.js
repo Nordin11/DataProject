@@ -4,6 +4,8 @@
 // SOURCE: https://bl.ocks.org/mbostock/4062045 //
 
 // define margins 
+
+function Network() {
 var margin = { top: 40, right: 40, bottom: 40, left: 40  },
 	width = 1040 - margin.right - margin.left,
 	height = 680 - margin.top - margin.bottom;
@@ -73,4 +75,5 @@ function dragended(d) {
   d.fx = null;
   d.fy = null;
 }
+};
 
