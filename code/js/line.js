@@ -1,5 +1,6 @@
 // Nordin Bouchrit //
 // 11050608       //
+// SOURCE: https://bl.ocks.org/d3noob/4db972df5d7efc7d611255d1cc6f3c4f //
 
 function load() {
 
@@ -22,6 +23,7 @@ function load() {
 		var d = str.substr(8,2)
 		return new Date(y,m,d)
 	}
+
 
 	function colors_linechart(n) {
   		var colors_l = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 

@@ -1,7 +1,9 @@
 // Nordin Bouchrit //
 // 11050608       //
+// SOURCE: https://bl.ocks.org/arpitnarechania/caeba2e6579900ea12cb2a4eb157ce74 //
 
-// Technology 
+
+// Finance
 
 var correlationMatrix = [
 		[ 1, 0.81762411, 0.5360019, 0.34711931, 0.37814524],
@@ -17,8 +19,11 @@ Matrix({
     container : '#correlation-matrix-div',
     data      : correlationMatrix,
     labels    : labels,
-    start_color : '#ffffff',
-    end_color : '#3ee061'
+    start_color_P : '#ffffff',
+    end_color_P: '#3ee061',
+    start_color_N: '#ffffff',
+    end_color_N: '#f70e0e'
+
 });
 
 function Matrix(options) {
@@ -28,10 +33,10 @@ function Matrix(options) {
 	    data = options.data,
 	    container = options.container,
 	    labelsData = options.labels,
-	    startColor = options.start_color,
-	    endColor = options.end_color;
-
-	var widthLegend = 100;
+	    startColorPositive = options.start_color_P,
+	    endColorPositive = options.end_color_P,
+	    startColorNegative = options.start_color_N,
+	    endColorNegative = options.end_color_N;
 
 	if(!data){
 		throw new Error('Please pass data');
@@ -61,9 +66,13 @@ function Matrix(options) {
 	    .domain(d3.range(numrows))
 	    .rangeBands([0, height]);
 
-	var colorMap = d3.scale.linear()
+	var colorMapPositive = d3.scale.linear()
 	    .domain([minValue,maxValue])
-	    .range([startColor, endColor]);
+	    .range([startColorPositive, endColorPositive]);
+
+	var colorMapNegative = d3.scale.linear()
+	    .domain([minValue,maxValue])
+	    .range([startColorNegative, endColorNegative]);
 
 	var row = svg.selectAll(".row")
 	    .data(data)
@@ -81,6 +90,7 @@ function Matrix(options) {
 	    .attr("width", x.rangeBand())
 	    .attr("height", y.rangeBand())
 	    .style("stroke-width", 0);
+
 	 cell.append("text")
 	    .attr("dy", ".32em")
 	    .attr("x", x.rangeBand() / 2)
@@ -91,7 +101,7 @@ function Matrix(options) {
 
 	row.selectAll(".cell")
 	    .data(function(d, i) { return data[i]; })
-	    .style("fill", colorMap);
+	    .style("fill", colorMapPositive);
 
 	var labels = svg.append('g')
 		.attr('class', "labels");
@@ -120,7 +130,7 @@ function Matrix(options) {
 
 	var rowLabels = labels.selectAll(".row-label")
 	    .data(labelsData)
-	  .enter().append("g")
+	   .enter().append("g")
 	    .attr("class", "row-label")
 	    .attr("transform", function(d, i) { return "translate(" + 0 + "," + y(i) + ")"; });
 
@@ -138,22 +148,5 @@ function Matrix(options) {
 	    .attr("dy", ".32em")
 	    .attr("text-anchor", "end")
 	    .text(function(d, i) { return d; });
-
-
-    var y = d3.scale.linear()
-    .range([height, 0])
-    .domain([minValue, maxValue]);
-
-    var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("right");
-
-    key.append("g")
-    .attr("class", "y axis")
-    .attr("transform", "translate(41," + margin.top + ")")
-    .call(yAxis)
-
-
-
 
 }

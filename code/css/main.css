@@ -29,12 +29,29 @@ svg {
 
 /* content style */
 
+/* network style */
 .network-container {
 	max-width: 1500px;
 	width: 100%;
 	background-color: #fff !important;
 }
 
+.network-div {
+	margin-top: 30px;
+}
+
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+
+/* Chart style */
 .support-graphs-container {
 	max-width: 1500px;
 	width: 100%;
@@ -47,21 +64,27 @@ svg {
 	font-weight: bold;
 }
 
-.network-div {
-	margin-top: 30px;
-}
-
 .price-chart-div {
 	margin-top: 30px;
 }
 
-.correlation-matrix-div {
-	margin-top: 30px;
+.axis path,
+.axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
 }
 
+.label {
+	font-size: 11px;
+}
+
+.line {
+  fill: none;
+  stroke-width: 2px;
+}
 
 /* footer style */
-
 .footer-container {
 	background-color: #E0E0E0;
 	height: 50px;
@@ -71,25 +94,7 @@ svg {
 	padding-top: 15px;
 }
 
-/* style rules for x and y axis */
-.axis path,
-.axis line {
-	fill: none;
-	stroke: #000;
-	shape-rendering: crispEdges;
-}
 
-
-/* axis label style rule */
-.label {
-	font-size: 11px;
-}
-
-/* data style rules */
-.line {
-  fill: none;
-  stroke-width: 2px;
-}
 
 
 
