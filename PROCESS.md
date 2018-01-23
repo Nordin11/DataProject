@@ -39,6 +39,7 @@
 #### Tue 23 January:
 - Finished the interaction with the dropdown menu and correlation matrix
 - Spent the whole day on the network graph. I did finish the main network. But there are too many links in matrix, so I have to filter the data later. 
+- Somehow GitHub pages still doesn't load jQuery. So the dropdown doesn't work in GitHub pages.. 
 
 #### Wed 24 January: 
 <br />
