@@ -4,7 +4,7 @@
 /* style for the whole page */
 body {
 	font-family: 'Comfortaa', cursive; 
-	background-color: #ededed;
+	background-color: #fff;
 }
 
 svg {
@@ -12,6 +12,14 @@ svg {
 	margin-right: auto;
 	display: block;
 } 
+
+hr { 
+	border: 0; 
+	border-bottom: 1px 
+	dashed #ccc; 
+	background: #fff; 
+	background-color: #fff !important;
+}
 
 /* header style */
 .stock-market-nav {
@@ -30,14 +38,17 @@ svg {
 
 /* network style */
 .network-container {
-	max-width: 1500px;
+	max-width: 100%;
 	width: 100%;
 	background-color: #fff !important;
+	padding-top: 30px;
 }
 
-.network-div {
-	margin-top: 30px;
+#correlation-network {
+	max-width: 100%;
+	width: 100%;
 }
+
 
 .links line {
   stroke: #999;
@@ -61,6 +72,7 @@ svg {
 	max-width: 1500px;
 	width: 100%;
 	background-color: #fff !important;	
+	margin-top: 60px;
 }
 
 .graph-title {

@@ -1,26 +1,24 @@
-// Nordin Bouchrit //
-// 11050608       //
-
-// SOURCE: https://bl.ocks.org/mbostock/4062045 //
-
 // define margins 
+var margin = { top: 60, right: 37, bottom: 40, left: 70  },
+  width = 797 - margin.right - margin.left,
+  height = 540 - margin.top - margin.bottom;
 
-function Network() {
-var margin = { top: 40, right: 40, bottom: 40, left: 40  },
-	width = 1040 - margin.right - margin.left,
-	height = 680 - margin.top - margin.bottom;
+  var svg = d3v4.select("#correlation-network")
+      .append("svg")
+      .attr("width", width + margin.right + margin.left)
+      .attr("height", height + margin.top + margin.bottom)  
+         .append("g")
+      .attr("transform", 
+            "translate(" + margin.left + ',' + margin.right + ')');
 
-var svg = d3.select("#correlation-network-div")
-		.append("svg")
-		.attr("width", width + margin.right + margin.left)
-		.attr("height", height + margin.top + margin.bottom)	
-	  .append("g")
-		.attr("transform", 
-			 "translate(" + margin.left + ',' + margin.right + ')');
+var color = d3v4.scaleOrdinal(d3v4.schemeCategory20);
 
-var color = d3.scale.ordinal(d3.schemeCategory20);
+var simulation = d3v4.forceSimulation()
+    .force("link", d3v4.forceLink().id(function(d) { return d.id; }))
+    .force("charge", d3v4.forceManyBody())
+    .force("center", d3v4.forceCenter(width / 2, height / 2));
 
-d3.json("data/network.json", function(error, graph) {
+d3v4.json("data/network.json", function(error, graph) {
   if (error) throw error;
 
   var link = svg.append("g")
@@ -28,52 +26,40 @@ d3.json("data/network.json", function(error, graph) {
     .selectAll("line")
     .data(graph.links)
     .enter().append("line")
-      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+      .attr("stroke-width", function(d) { return Math.sqrt(d.value) * 2; });
 
   var node = svg.append("g")
       .attr("class", "nodes")
     .selectAll("circle")
     .data(graph.nodes)
     .enter().append("circle")
-      .attr("r", 5)
+      .attr("r", 7)
       .attr("fill", function(d) { return color(d.group); })
-      .call(d3.drag()
-          .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended));
+
+
 
   node.append("title")
       .text(function(d) { return d.id; });
 
+  simulation
+      .nodes(graph.nodes)
+      .on("tick", ticked);
+
+  simulation.force("link")
+      .links(graph.links);
 
   function ticked() {
     link
-        .attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
+        .attr("x1", function(d) { return d.source.PositionX * 10 ; })
+        .attr("y1", function(d) { return d.source.PositionY * 10 ; })
+        .attr("x2", function(d) { return d.target.PositionX  * 10 ; })
+        .attr("y2", function(d) { return d.target.PositionY * 10 ; });
 
     node
-        .attr("cx", function(d) { return d.x; })
-        .attr("cy", function(d) { return d.y; });
+        .attr("cx", function(d) { return d.PositionX * 10 ; })
+        .attr("cy", function(d) { return d.PositionY * 10; });
   }
+
 });
 
-function dragstarted(d) {
-  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-  d.fx = d.x;
-  d.fy = d.y;
-}
-
-function dragged(d) {
-  d.fx = d3.event.x;
-  d.fy = d3.event.y;
-}
-
-function dragended(d) {
-  if (!d3.event.active) simulation.alphaTarget(0);
-  d.fx = null;
-  d.fy = null;
-}
-};
 

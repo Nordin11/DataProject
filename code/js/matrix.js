@@ -1,121 +1,33 @@
 
+	    	$('#finance-matrix').hide();
+	    	$('#tech-matrix').hide();
+	    	$('#services-matrix').hide();
+	    	$('#materials-matrix').hide();
+	    	$('#goods-matrix').hide();
 
-// Finance
-(function ($) {
-	
-	$(document).ready(function (){
+			function showonlyone(thechosenone) {
+			     $('.showmatrix').each(function(index) {
 
-	    $('.finance-matrix').hide();
-	    $('.tech-matrix').hide();
-	    $('.services-matrix').hide();
-	    $('.materials-matrix').hide();
-	    $('.goods-matrix').hide();
-	    
-	    var finance = 1;
-	    var tech = 1;
-	    var services = 1;
-	    var materials = 1;
-	    var goods = 1;
+			          if ($(this).parent().attr("id") == thechosenone) {
+			               	$(this).parent().show(200);
+			               	$('#placeholder-correlation').hide();
+			          }
+			          else {
+			               	$(this).parent().hide(600);
+			          }
+			    });
+			}
 
-	    // show when clicked  
-	    while (finance == 1) {
-	        $('.financeTrigger').click(function(){
-	        	
-	        	$('.tech-matrix').hide();
-	    		$('.services-matrix').hide();
-	    		$('.materials-matrix').hide();
-	   			$('.goods-matrix').hide();
+			function hideMatrix() {
+				$('#placeholder-correlation').show();
+				$('#finance-matrix').hide();
+	    		$('#tech-matrix').hide();
+	    		$('#services-matrix').hide();
+	    		$('#materials-matrix').hide();
+	    		$('#goods-matrix').hide();
 
-	            $(".finance-matrix").show();
-	            finance = finance * -1;
+			}
 
-
-	        });
-	    }
-	    while (finance == -1) {
-	    	$('.financeTrigger').click(function(){
-	            $(".finance-matrix").hide();
-	            finance = finance * -1;
-	            console.log(finance)  
-	        });
-	    }
-	    while (tech == 1) {
-	       	$('.techTrigger').click(function(){
-	            
-	            $('.finance-matrix').hide();
-	    		$('.services-matrix').hide();
-	    		$('.materials-matrix').hide();
-	    		$('.goods-matrix').hide();
-
-	            $(".tech-matrix").show();
-	            tech = tech * -1;
-
-	            $('.techTrigger').click(function(){
-	            	$(".tech-matrix").hide();
-
-	            	tech = tech *-1;
-	        	}); 
-	        });
-	    }
-
-	    if (services == 1) {
-	       	$('.servicesTrigger').click(function(){
-	            
-	            $('.finance-matrix').hide();
-	    		$('.tech-matrix').hide();
-	    		$('.materials-matrix').hide();
-	    		$('.goods-matrix').hide();
-
-	            $(".services-matrix").show();
-	            services = services * -1;
-
-	            $('.servicesTrigger').click(function(){
-	            	$(".services-matrix").hide();
-	            	services = services * -1; 
-	        	});
-	        });
-	    }
-
-	    if (materials == 1) {
-	       	$('.materialsTrigger').click(function(){
-	            
-	            $('.finance-matrix').hide();
-	    		$('.tech-matrix').hide();
-	    		$('.services-matrix').hide();
-	    		$('.goods-matrix').hide();
-
-	            $(".materials-matrix").show();
-	            materials = materials * -1;
-
-	            $('.materialsTrigger').click(function(){
-	            	$(".materials-matrix").hide();
-	            	materials = materials * -1; 
-	        	});
-	        });
-	    }
-
-	    if (goods == 1) {
-	    	$('.goodsTrigger').click(function(){
-	            
-	            $('.finance-matrix').hide();
-	    		$('.tech-matrix').hide();
-	    		$('.services-matrix').hide();
-	    		$('.materials-matrix').hide();
-
-	            $(".goods-matrix").show();
-	            goods = goods * -1;
-
-	            $('.goodsTrigger').click(function(){
-	            	$(".goods-matrix").hide();
-	            	goods = goods * -1; 
-	        	});
-	        });
-	    }
-
-	    
-       
-	}());
-}(jQuery));
 
 var labels_Finance = ['JPM','BAC','WFC','V','C'];
 var correlationMatrix_Finance = [
@@ -283,13 +195,29 @@ function Matrix(options) {
 	    .attr('class', 'matrix-title')
 	    .text(matrix_title);
 	
-	var close = svg.append("text")
-	    .attr("dy", ".32em")
+	var close = svg.append("a")
+		.attr("xlink:href", "javascript:hideMatrix();")
+	    .append("rect")  
 	   	.attr("x", 550)
-	    .attr("y", -30)
+	    .attr("y", -38)
+	    .attr("height", 20)
+    	.attr("width", 20)
+    	.style("fill", "red")
+    	.attr("rx", 10)
+    	.attr("ry", 10)
+	    .attr('class', 'closeBtn');
+
+	// draw text on the screen
+	svg.append("text")
+	    .attr("x", 559.8)
+	    .attr("y", -27)
+	    .style("fill", "white")
+	    .style("font-size", "15px")
+	    .attr("dy", ".35em")
 	    .attr("text-anchor", "middle")
-	    .attr('class', 'btn')
-	    .text('X');
+	    .style("pointer-events", "none")
+	    .text("X");
+
 
 	var labels = svg.append('g')
 		.attr('class', "labels");

@@ -32,11 +32,11 @@
 		      		<li class="nav-item dropdown">
 		        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Industries</a>
 			        	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="industryName">
-			          		<a class="dropdown-item financeTrigger">Finance</a>
-			         		<a class="dropdown-item techTrigger">Technology</a>
-			          		<a class="dropdown-item servicesTrigger">Services</a>
-			          		<a class="dropdown-item materialsTrigger">Materials</a>
-			          		<a class="dropdown-item goodsTrigger">Goods</a>
+			          		<a class="dropdown-item" id="financeTrigger" href="javascript:showonlyone('finance-matrix');">Finance</a>
+			         		<a class="dropdown-item" id="techTrigger" href="javascript:showonlyone('tech-matrix');">Technology</a>
+			          		<a class="dropdown-item" id="servicesTrigger" href="javascript:showonlyone('services-matrix');">Services</a>
+			          		<a class="dropdown-item" id="materialsTrigger" href="javascript:showonlyone('materials-matrix');">Materials</a>
+			          		<a class="dropdown-item" id="goodsTrigger" href="javascript:showonlyone('goods-matrix');">Goods</a>
 			        	</div>
 		      		</li>
 		    	</ul>
@@ -48,17 +48,55 @@
 
 		<!-- network graph area -->
 		<div class="container network-container">
-			<div class="container-fluid">
-				<div class="d-flex justify-content-center">
-					<h1 class="graph-title"> Correlation Network </h1>
-				</div>
-			</div>
-			<div class="container-fluid">
-				<div class="d-flex justify-content-center network-div" id="correlation-network-div">
-				
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="container-fluid" id="correlation-network">
+						<div class="d-flex justify-content-center network-div" id="correlation-network-div">
+						
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+		<hr />
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<center>
+					<div id="placeholder-correlation">
+					<a> Click on an industry in the dropdown menu to show correlation matrix.</a>
+					</div>
+					<div id="finance-matrix">
+						<div class="d-flex justify-content-center showmatrix" id="finance-matrix-div">
+							
+						</div>
+					</div>
+					<div id="tech-matrix">
+						<div class="d-flex justify-content-center showmatrix" id="tech-matrix-div">
+							
+						</div>
+					</div>
+					<div id="services-matrix">
+						<div class="d-flex justify-content-center showmatrix" id="services-matrix-div">
+							
+						</div>
+					</div>
+					<div id="materials-matrix">
+						<div class="d-flex justify-content-center showmatrix" id="materials-matrix-div">
+							
+						</div>
+					</div>
+					<div id="goods-matrix">
+						<div class="d-flex justify-content-center showmatrix" id="goods-matrix-div">
+							
+						</div>
+					</div>
+					</center>
+				</div>
+			</div>
+		</div>
+
+		<hr />
 
 		<!-- correlation and price charts area -->
 		<div class="container support-graphs-container">
@@ -66,36 +104,6 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<center>
-						<div class="finance-matrix">
-							<div class="d-flex justify-content-center" id="finance-matrix-div">
-							
-							</div>
-						</div>
-						<div class="tech-matrix">
-							<div class="d-flex justify-content-center" id="tech-matrix-div">
-							
-							</div>
-						</div>
-						<div class="services-matrix">
-							<div class="d-flex justify-content-center" id="services-matrix-div">
-							
-							</div>
-						</div>
-						<div class="materials-matrix">
-							<div class="d-flex justify-content-center" id="materials-matrix-div">
-							
-							</div>
-						</div>
-						<div class="goods-matrix">
-							<div class="d-flex justify-content-center" id="goods-matrix-div">
-							
-							</div>
-						</div>
-						</center>
-					</div>
-					<div class="col-sm-12">
-						<center>
-							<h1 class="graph-title"> Price Charts </h1>
 						<div class="d-flex justify-content-center" id="price-chart-div">
 						
 						</div>
@@ -122,16 +130,14 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 		
 		<script type="text/javascript" src="d3/d3.min.js"></script>
-		
+		<script type="text/javascript" src="d3/d3.v4.min.js"></script>
 		<script type="text/javascript" src="d3/d3-tip.js"></script>
 		<script type="text/javascript" src="d3/d3-drag.min.js"></script>
 		<script type="text/javascript" src="code/js/line.js"></script>
 		<script type="text/javascript" src="code/js/matrix.js"></script>
 		<script type="text/javascript" src="code/js/network.js"></script>
 		<script type="text/javascript" src="code/js/interactions.js"></script>
-
 		<script type="text/javascript" src="code/js/bootstrap/bootstrap.min.js"></script>
 
-	</body>
 
 </html>
