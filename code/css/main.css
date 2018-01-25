@@ -35,7 +35,71 @@ hr {
 	color: #212121 !important;
 }
 
+/* about style */
+
+#about-div {
+	max-width: 1500px;
+	width: 100%;
+	background-color: #fff !important;
+	padding-top: 20px;	
+}
+
+#about-header {
+	font-weight: bold;
+}
+
+#about-paragraph {
+	line-height: 2;
+}
+
+#about-content {
+	padding-top: 5px;
+	margin-bottom: 10px;
+}
+
+#close-button {
+	text-decoration: none;
+	color: #000;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#finance-legend {
+	-webkit-transform: rotate(-40deg);
+	-moz-transform: rotate(-40deg);
+	-ms-transform: rotate(-40deg);
+	-o-transform: rotate(-40deg);
+}
+
+#materials-legend {
+	-webkit-transform: rotate(35deg);
+	-moz-transform: rotate(35deg);
+	-ms-transform: rotate(35deg);
+	-o-transform: rotate(35deg);
+}
+
+#tech-legend {
+	-webkit-transform: rotate(30deg);
+	-moz-transform: rotate(30deg);
+	-ms-transform: rotate(30deg);
+	-o-transform: rotate(30deg);
+}
+
+
+#goods-legend {
+	-webkit-transform: rotate(-55deg);
+	-moz-transform: rotate(-55deg);
+	-ms-transform: rotate(-55deg);
+	-o-transform: rotate(-55deg);
+}
+
+
 /* slider style */
+
+#slider-container {
+	margin-top: 10px;
+	margin-bottom: -20px;
+}
 
 
 /* network style */
@@ -66,12 +130,11 @@ hr {
 
 
 .links line {
-  stroke: #999;
-  stroke-opacity: 0.6;
+  stroke-opacity: 0.3;
 }
 
 .nodes circle {
-  stroke: #fff;
+  stroke: #000;
   stroke-width: 1.5px;
 }
 
@@ -117,6 +180,7 @@ hr {
 	-ms-transform: rotate(-90deg);
 	-o-transform: rotate(-90deg);
 }
+
 
 .label {
 	font-size: 11px;

@@ -48,6 +48,8 @@
 <br />
 
 #### Thu 25 January:
+- Finished the interactions with the network graph and added the slider, this went through a lot of debugging
+- Changed the price data again. I normalized it so by indexing the first date.
 <br />
 
 #### Mon 29 January:

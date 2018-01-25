@@ -20,14 +20,14 @@
 
 		<!-- START HEADER -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark stock-market-nav">
-		    <a class="navbar-brand" href="#"> D3 Finance </a>
+		    <a class="navbar-brand"> D3 Finance </a>
 		    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		    </button>
 		    <div class="collapse navbar-collapse" id="navbarNavDropdown">
 		    	<ul class="navbar-nav">
 		      		<li class="nav-item active">
-		        		<a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+		        		<a class="nav-link" href="javascript:showAbout();">About <span class="sr-only">(current)</span></a>
 		      		</li>
 		      		<li class="nav-item dropdown">
 		        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Industries</a>
@@ -46,8 +46,30 @@
 
 		<!--START CONTENT AREA -->
 
+		<!-- About area -->
+
+		<div class="container-fluid show-about" id="about-div">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="container">
+						<div class="d-flex justify-content-center">
+							<a href="javascript:hideAbout();" id="close-button">X</a>
+						</div>
+					</div>
+					<div class="container" id="about-content">
+						<a id="about-header"> Introduction </a>
+						<br>
+						<p id="about-paragraph"> Investing in stocks is becoming increasingly popular. Due to the complexity, this space is quite inaccesible for people without a financial background. There are no clear connections between the stocks and it seems to behave quite randomly. <br>
+						This inaccesibility is quite a problem for potential newcomers that can be broken down by visualizing the space and connections in this space so that is becomes more clear and easy to get in to. Also by defining the core connections between the stocks via correlation there will be more space left for research in to variables that may, or may not cause these correlations.</p>
+					</div>
+					<hr />
+				</div>
+			</div>
+		</div>
+
+
 		<!--- slider area -->
-		<center>
+
 		<div class="container" id="slider-container">
 			<div class="row">
 				<div class="col-sm-12">
@@ -57,7 +79,7 @@
 				</div>
 			</div>	
 		</div>
-		</center>
+
 		<!-- network graph area -->
 		<div class="container network-container">
 			<div class="row">
@@ -71,7 +93,7 @@
 			</div>
 		</div>
 		<hr />
-		<div class="container">
+		<div class="container" id="matrix">
 			<div class="row">
 				<div class="col-sm-12">
 					<center>
@@ -134,16 +156,24 @@
 		<!-- START FOOTER -->
 		<footer>
 			<div class="container-fluid footer-container">
-				<div class="d-flex justify-content-left footer-content"> 
-					<a> &copy; Nordin Bouchrit </a> 
-					<a> &nbsp;| 11050608
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="d-flex justify-content-left footer-content"> 
+							<a> &copy; Nordin Bouchrit </a> 
+							<a> &nbsp;| 11050608 </a>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		</footer>
 		<!-- END FOOTER -->
 
-
-		<script src="//code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		
+		<script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+		crossorigin="anonymous"></script>
+		<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
+		<!--<script src="//code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 		
 		<script type="text/javascript" src="d3/d3.min.js"></script>
@@ -156,5 +186,6 @@
 		<script type="text/javascript" src="code/js/interactions.js"></script>
 		<script type="text/javascript" src="code/js/bootstrap/bootstrap.min.js"></script>
 
+	</body>
 
 </html>

@@ -102,26 +102,11 @@ function simpleSlider () {
        
     
 
-    
-    //    d3.select("#corrLine").attr("stroke-width", function(d) { 
-    //                            if (Math.abs(d.value) > slider1.value();) {  
-    //                              return Math.sqrt(d.value) * 2.5;
-    //                            }
-    //                            else {
-    //                              return 0;
-    //                            }
-    //                          })
 
 
-
-// START NETWORK JAVASCRIPT
-slider1.width(700).x(125).y(50).value(0.001).event(function(){
-  console.log(slider1.value())
-
-});
 
 svg_slider.append('text')
-  .text("Slide me to adjust the correlation boundary")
+  .text("Slide me to adjust the correlation lower boundary")
   .attr("x", 460)
   .attr("y", 25)
   .style("fill", "black")
@@ -130,7 +115,27 @@ svg_slider.append('text')
   .attr("text-anchor", "middle")
   .style("pointer-events", "none")
 
-svg_slider.call(slider1);
+svg_slider.append('text')
+  .text("0.0")
+  .attr("x", 90)
+  .attr("y", 50)
+  .style("fill", "black")
+  .style("font-size", "15px")
+  .attr("dy", ".35em")
+  .attr("text-anchor", "middle")
+  .style("pointer-events", "none")
+
+svg_slider.append('text')
+  .text("1.0")
+  .attr("x", 850)
+  .attr("y", 50)
+  .style("fill", "black")
+  .style("font-size", "15px")
+  .attr("dy", ".35em")
+  .attr("text-anchor", "middle")
+  .style("pointer-events", "none")
+
+
 
   var margin = { top: 60, right: 37, bottom: 40, left: 70  },
     width = 797 - margin.right - margin.left,
@@ -160,14 +165,29 @@ svg_slider.call(slider1);
       .data(graph.links)
       .enter().append("line")
         .attr("id", "corrLine")
-        .attr("stroke-width", function(d) { 
-                        if (Math.abs(d.value) > 0.5) {  
-                                     return Math.sqrt(d.value) * 2.5;
-                                   }
-                                   else {
-                                     return 0;
-                                   }
-                        });
+        .attr("stroke", function(d) {
+                  if (d.value < 0) {
+                      return "red"
+                  }
+                  else {
+                      return "green"
+                  } 
+        })
+
+slider1.width(700).x(125).y(50)
+slider1.value(0.001).event(function(){        
+  link.attr("stroke-width", function(d) { 
+      if (Math.abs(d.value) > slider1.value()) {  
+          return Math.sqrt(d.value) * 2.5;
+      }
+      else {
+          return 0;
+      }
+    });
+});
+svg_slider.call(slider1);
+
+
 
     var tooltip = d3.select("#correlation-network-div").append("div")
         .attr("class", "tooltip")
@@ -197,14 +217,65 @@ svg_slider.call(slider1);
       .selectAll("circle")
       .data(graph.nodes)
       .enter().append("circle")
-        .attr("r", 7)
+        .attr("r", function (d) { return d.sum })
         .attr("fill", function(d) { return color(d.group); })
         .on("mouseover", tipMouseover)
         .on("mouseout", tipMouseout);
 
+    svg.append('text')
+    .text("Finance")
+    .attr("x", -5)
+    .attr("y", 5)
+    .attr("id", "finance-legend")
+    .style("fill", "black")
+    .style("font-size", "15px")
+    .attr("dy", ".35em")
+    .attr("text-anchor", "middle")
+    .style("pointer-events", "none");
 
-    node.append("title")
-        .text(function(d) { return d.id; });
+    svg.append('text')
+    .text("Materials")
+    .attr("x", 470)
+    .attr("y", -320)
+    .attr("id", "materials-legend")
+    .style("fill", "black")
+    .style("font-size", "15px")
+    .attr("dy", ".35em")
+    .attr("text-anchor", "middle")
+    .style("pointer-events", "none");
+
+   svg.append('text')
+      .text("Technology")
+      .attr("x", 170)
+      .attr("y", 315)
+      .attr("id", "tech-legend")
+      .style("fill", "black")
+      .style("font-size", "15px")
+      .attr("dy", ".35em")
+      .attr("text-anchor", "middle")
+      .style("pointer-events", "none");
+
+   svg.append('text')
+      .text("Services")
+      .attr("x", 300)
+      .attr("y", 445)
+      .attr("id", "services-legend")
+      .style("fill", "black")
+      .style("font-size", "15px")
+      .attr("dy", ".35em")
+      .attr("text-anchor", "middle")
+      .style("pointer-events", "none");
+
+    svg.append('text')
+        .text("Goods")
+        .attr("x", 120)
+        .attr("y", 705)
+        .attr("id", "goods-legend")
+        .style("fill", "black")
+        .style("font-size", "15px")
+        .attr("dy", ".35em")
+        .attr("text-anchor", "middle")
+        .style("pointer-events", "none");
 
     simulation
         .nodes(graph.nodes)

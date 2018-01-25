@@ -50,7 +50,7 @@ function load() {
 		.range([height, 0]);
 
 	//import the data
-	d3.csv("data/price_history.csv", function(error, data){
+	d3.csv("data/price_relative_gain.csv", function(error, data){
 		// check for errors
 		if(error) console.log("Error: data not loaded")
 		
