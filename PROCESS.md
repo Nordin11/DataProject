@@ -42,6 +42,9 @@
 - Somehow GitHub pages still doesn't load jQuery. So the dropdown doesn't work in GitHub pages.. 
 
 #### Wed 24 January: 
+- Fixed the GitHub pages problem
+- Made the interaction between the correlation matrix and the price charts. 
+- started with a new idea on the networking graph. I am going to make a slider that triggers the bound in from which correlation strength the user wants to see the lines between the nodes in the graph.
 <br />
 
 #### Thu 25 January:

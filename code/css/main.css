@@ -35,6 +35,8 @@ hr {
 	color: #212121 !important;
 }
 
+/* slider style */
+
 
 /* network style */
 .network-container {
@@ -47,6 +49,19 @@ hr {
 #correlation-network {
 	max-width: 100%;
 	width: 100%;
+}
+
+.tooltip {
+	position: absolute;
+	font-size: 13px;
+	color: #000;
+	width: auto;
+	height: auto;
+	pointer-events: none;
+	background-color: #ededed;
+	border: 1px solid;
+	padding: 8px 20px; 
+  	border-radius: 10px;
 }
 
 
@@ -67,23 +82,25 @@ hr {
 	font-size: 20px;
 }
 
+
+.chart-title {
+	color: #000;
+	font-size: 25px;
+}
+
 /* Chart style */
 .support-graphs-container {
 	max-width: 1500px;
 	width: 100%;
-	background-color: #fff !important;	
-	margin-top: 60px;
+	background-color: #fff !important;
+	margin-top: 40px;	
 }
 
-.graph-title {
-	margin-top:50px;
-	font-size: 22px;
-	font-weight: bold;
+#placeholder-linegraph {
+	margin-top: 30px !important;
+	margin-bottom: 30px !important;
 }
 
-.price-chart-div {
-	margin-top: 30px;
-}
 
 .axis path,
 .axis line {
@@ -119,6 +136,7 @@ hr {
 .footer-content {
 	padding-top: 15px;
 }
+
 
 
 
