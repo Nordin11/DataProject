@@ -1,54 +1,63 @@
+// ALL THE JAVASCRIPT THAT HAS TO DO WITH THE INTERACTION FUNCTIONS AND MATRIX
 
-	    	$('#finance-matrix').hide();
-	    	$('#tech-matrix').hide();
-	    	$('#services-matrix').hide();
-	    	$('#materials-matrix').hide();
-	    	$('#goods-matrix').hide();
-	    	$('#placeholder-linegraph').hide();
-	    	$('#linegraph').hide();
-	    	$('#about-div').hide();
+// hide everything that has to be hidden at start
+$('#finance-matrix').hide();
+$('#tech-matrix').hide();
+$('#services-matrix').hide();
+$('#materials-matrix').hide();
+$('#goods-matrix').hide();
+$('#placeholder-linegraph').hide();
+$('#linegraph').hide();
+$('#about-div').hide();
 
-			function showonlyone(thechosenone) {
-			     $('.showmatrix').each(function(index) {
+// function that shows matrix when clicked on dropdown option
+function showonlyone(thechosenone) {
+	$('.showmatrix').each(function(index) {
+		// show the matrix with the id of the option that is clicked
+		if ($(this).parent().attr("id") == thechosenone) {
+			$(this).parent().show(200);
+			$('#linegraph').hide();
+			$('#placeholder-correlation').hide();
+			$('#placeholder-linegraph').show();
+			// slide down to bottom of page
+			$('html, body').animate({ 
+				scrollTop: $(document).height()-$(window).height() + 410}, 
+				1000, 
+			);
+		}
+		else {
+			$(this).parent().hide(600);
+		}
+	});
+}
 
-			          if ($(this).parent().attr("id") == thechosenone) {
-			               	$(this).parent().show(200);
-			               	$('#placeholder-correlation').hide();
-			               	$('#placeholder-linegraph').show();
-			               	$('html, body').animate({ 
-							   scrollTop: $(document).height()-$(window).height() + 410}, 
-							   1000, 
-							);
-			          }
-			          else {
-			               	$(this).parent().hide(600);
-			          }
-			    });
-			}
+// close the matrix div
+function hideMatrix() {
+	$('#placeholder-correlation').show();
+	$('#finance-matrix').hide();
+	$('#tech-matrix').hide();
+	$('#services-matrix').hide();
+	$('#materials-matrix').hide();
+	$('#goods-matrix').hide();
+}
 
-			function hideMatrix() {
-				$('#placeholder-correlation').show();
-				$('#finance-matrix').hide();
-	    		$('#tech-matrix').hide();
-	    		$('#services-matrix').hide();
-	    		$('#materials-matrix').hide();
-	    		$('#goods-matrix').hide();
-			}
+// show the about div
+function showAbout() {
+	$('#about-div').show();
+}
 
-			function showAbout() {
-				$('#about-div').show();
-			}
-			function hideAbout() {
-				$('#about-div').hide();
-			}
+// hide about div
+function hideAbout() {
+	$('#about-div').hide();
+}
 
-			function hideChart() {
-				$('#placeholder-linegraph').show();
-				$('#linegraph').hide();
-			}
+// close the chart div
+function hideChart() {
+	$('#placeholder-linegraph').show();
+	$('#linegraph').hide();
+}
 
-
-
+// define all the data gathered via python 
 var labels_Finance = ['JPM','BAC','WFC','V','C']
 var correlationMatrix_Finance = [
 		[ 1, 0.81762411, 0.5360019, 0.34711931, 0.37814524],
@@ -94,6 +103,7 @@ var correlationMatrix_Goods = [
 		[ 0.6920721, 0.86179124, 0.74545251, 0.82718561, 1],
 		];
 
+// call every matrix
 Matrix({
    	container : '#finance-matrix-div',
 	matrix_title: 'Financial industry',
@@ -135,16 +145,19 @@ Matrix({
 	end_color: '#00ff27'});
 
 function Matrix(options) {
+	// define margins
 	var margin = {top: 50, right: 100, bottom: 100, left: 100},
 	    width = 600,
 	    height = 500,
+	    // call the variables
 	    data = options.data,
 	    container = options.container,
 	    matrix_title = options.matrix_title,
 	    labelsData = options.labels,
 	    startColor = options.start_color,
 	    endColor = options.end_color;
-	   
+	 
+	// check for errors  
 	if(!data){
 		throw new Error('Please pass data');
 	}
@@ -153,18 +166,22 @@ function Matrix(options) {
 		throw new Error('It should be a 2-D array');
 	}
 
+	// define the max and minimum
     var maxValue = d3.max(data, function(layer) { return d3.max(layer, function(d) { return d; }); });
     var minValue = d3.min(data, function(layer) { return d3.min(layer, function(d) { return d; }); });
 
+    // define number of rows and columns
    	var numrows = data.length;
 	var numcols = data[0].length;
 
+	// append the canvas
 	var svg = d3.select(container).append("svg")
 	    .attr("width", width + margin.left + margin.right)
 	    .attr("height", height + margin.top + margin.bottom)
 	   .append("g")
 	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-	    
+	 
+	// set x and y scales   
 	var x = d3.scale.ordinal()
 	    .domain(d3.range(numcols))
 	    .rangeBands([0, width]);
@@ -173,10 +190,12 @@ function Matrix(options) {
 	    .domain(d3.range(numrows))
 	    .rangeBands([0, height]);
 
+	// define the colormapping that goes from red (-1) to green (1)
 	var colorMap = d3.scale.linear()
 	    .domain([-1,1])
 	    .range([startColor, endColor]);
 
+	// define the row 
 	var row = svg.selectAll(".row")
 	    .data(data)
 	  	.enter().append("g")
@@ -184,10 +203,12 @@ function Matrix(options) {
 	    .attr("transform", function(d, i) { return "translate(0," + y(i) + ")"; });
 
 
+	// define the cells
 	var cell = row.selectAll(".cell")
 	    .data(function(d) { return d; })
 			.enter().append("g")
 	    .attr("class", "cell")
+	    // add data to the cells
 	    .attr("transform", function(d, i) { return "translate(" + x(i) + ", 0)"; })
 	    .style("fill", colorMap)
 	    .on("mouseover", function(d) { d3.select(this).style('fill', '#383838')})
@@ -199,19 +220,24 @@ function Matrix(options) {
 							   scrollTop: $(document).height()-$(window).height() - 40}, 
 							   1000, 
 							);
+							// make sure every line is slightly seen but hidden
 	    					d3.selectAll(".line").style("opacity", 0.08).attr("stroke", "grey");
+	    					// let the lines of the stocks clicked on pop out
 	    					d3.select("#line" + labelsData[i] + "").style("opacity", 1).attr("stroke", "red");
 	    					d3.select("#line" + labelsData[j] + "").style("opacity", 1).attr("stroke", "blue");
+	    					// make sure that the stocks that are clicked on are the title
 	    					d3.select("#stockvstock").text("" + labelsData[i] + " vs. " + labelsData[j] + "");
 
 	    				});  	
 
+	// append the rect to the cells
 	cell.append('rect')
 	    .attr("width", x.rangeBand())
 	    .attr("height", y.rangeBand())
 	    .style("stroke-width", 0);
 
-	 cell.append("text")
+	// append text to the cells
+	cell.append("text")
 	    .attr("dy", ".32em")
 	    .attr("x", x.rangeBand() / 2)
 	    .attr("y", y.rangeBand() / 2)
@@ -221,6 +247,7 @@ function Matrix(options) {
 	    .style("opacity", 1)
 	    .text(function(d, i) { return d; });
 
+	// append a title to the matrix
 	svg.append("text")
 	    .attr("dy", ".32em")
 	    .attr("x", 300)
@@ -228,7 +255,8 @@ function Matrix(options) {
 	    .attr("text-anchor", "middle")
 	    .attr('class', 'matrix-title')
 	    .text(matrix_title);
-	
+
+	// append close button
 	var close = svg.append("a")
 		.attr("xlink:href", "javascript:hideMatrix();")
 	    .append("rect")  
@@ -241,7 +269,7 @@ function Matrix(options) {
     	.attr("ry", 10)
 	    .attr('class', 'closeBtn');
 
-	// draw text on the screen
+	// append X to the close button
 	svg.append("text")
 	    .attr("x", 559.8)
 	    .attr("y", -27)
@@ -252,10 +280,11 @@ function Matrix(options) {
 	    .style("pointer-events", "none")
 	    .text("X");
 
-
+	// call labels
 	var labels = svg.append('g')
 		.attr('class', "labels");
 
+	// append x axis labels
 	var columnLabels = labels.selectAll(".column-label")
 	    .data(labelsData)
 	    .enter().append("g")
@@ -278,6 +307,7 @@ function Matrix(options) {
 	    .attr("transform", "rotate(-60)")
 	    .text(function(d, i) { return d; });
 
+	// append y axis labels
 	var rowLabels = labels.selectAll(".row-label")
 	    .data(labelsData)
 	   .enter().append("g")
@@ -298,7 +328,5 @@ function Matrix(options) {
 	    .attr("dy", ".32em")
 	    .attr("text-anchor", "end")
 	    .text(function(d, i) { return d; });
-
-
 
 };

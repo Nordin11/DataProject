@@ -2,9 +2,6 @@
 // 11050608       //
 // SOURCE: https://bl.ocks.org/d3noob/4db972df5d7efc7d611255d1cc6f3c4f //
 
-
-
-
 function load() {
 
 	// define margins 
@@ -12,14 +9,16 @@ function load() {
 		width = 1200 - margin.right - margin.left,
 		height = 600 - margin.top - margin.bottom;
 
+	// call the canvas 
 	var svg = d3.select("#price-chart-div")
-			.append("svg")
-			.attr("width", width + margin.right + margin.left)
-			.attr("height", height + margin.top + margin.bottom)	
-	  	   .append("g")
-			.attr("transform", 
-			  	  "translate(" + margin.left + ',' + margin.right + ')');
+		.append("svg")
+		.attr("width", width + margin.right + margin.left)
+		.attr("height", height + margin.top + margin.bottom)	
+	   .append("g")
+		.attr("transform", 
+			  "translate(" + margin.left + ',' + margin.right + ')');
 
+	// define function to put date in to proper format
 	function customDate(str) {
 		var y = str.substr(0,4)
 		var m = str.substr(5,2)
@@ -27,20 +26,6 @@ function load() {
 		return new Date(y,m,d)
 	}
 
-
-	function colors_linechart(n) {
-  		var colors_l = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
-		  '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
-		  '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A', 
-		  '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
-		  '#66994D', '#B366CC', '#4D8000', '#B33300', '#CC80CC', 
-		  '#66664D', '#991AFF', '#E666FF', '#4DB3FF', '#1AB399',
-		  '#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680', 
-		  '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
-		  '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3', 
-	      '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'];
-  		return colors_l[n];
-	}
 	// define the x y scales
 	var x = d3.time.scale()
 		.range([0, width - margin.right * 2.5]);
@@ -192,7 +177,7 @@ function load() {
 			return Math.max(d.AAPL, d.AMZN, d.BABA, d.BAC, d.BP, d.BUD, d.C, d.CMCSA, d.CVX, d.FB, d.GOOGL, d.HD, d.JPM, d.KO, d.MSFT, d.PG, d.PTR, d.RDSB, d.T, d.TM, d.V, d.VZ, d.WFC, d.WMT, d.XOM) })]);
 
 
-		// Add the valueline path.
+		// Add the valueline path for every stock
 		svg.append("path")
 		    .data([data])
 		    .attr("class", "line")
@@ -200,7 +185,6 @@ function load() {
 		    .style("opacity", 0)
 		    .attr("d", lineAAPL);
 
-		// Add the valueline path.
 		svg.append("path")
 		    .data([data])
 		    .attr("class", "line")
@@ -208,8 +192,6 @@ function load() {
 		    .style("opacity", 0)
 		    .attr("d", lineAMZN);
 
-
-		// Add the valueline path.
 		svg.append("path")
 		    .data([data])
 		    .attr("class", "line")
@@ -217,7 +199,6 @@ function load() {
 		    .style("opacity", 0)
 		    .attr("d", lineBABA);
 
-		// Add the valueline path.
 		svg.append("path")
 		    .data([data])
 		    .attr("class", "line")
@@ -225,7 +206,6 @@ function load() {
 		    .style("opacity", 0)
 		    .attr("d", lineBAC);
 
-		// Add the valueline path.
 		svg.append("path")
 		    .data([data])
 		    .attr("class", "line")
@@ -233,7 +213,6 @@ function load() {
 		    .style("opacity", 0)
 		    .attr("d", lineBP);
 
-		// Add the valueline path.
 		svg.append("path")
 		    .data([data])
 		    .attr("class", "line")
@@ -241,7 +220,6 @@ function load() {
 		    .style("opacity", 0)
 		    .attr("d", lineBUD);
 
-		// Add the valueline path.
 		svg.append("path")
 		    .data([data])
 		    .attr("class", "line")
@@ -249,7 +227,6 @@ function load() {
 		    .style("opacity", 0)
 		    .attr("d", lineC);
 
-		// Add the valueline path.
 		svg.append("path")
 		    .data([data])
 		    .attr("class", "line")
@@ -257,7 +234,6 @@ function load() {
 		    .style("opacity", 0)
 		    .attr("d", lineCMCSA);
 
-		// Add the valueline path.
 		svg.append("path")
 		    .data([data])
 		    .attr("class", "line")
@@ -265,7 +241,6 @@ function load() {
 		    .style("opacity", 0)
 		    .attr("d", lineCVX);
 
-		// Add the valueline path.
 		svg.append("path")
 		    .data([data])
 		    .attr("class", "line")
@@ -273,7 +248,6 @@ function load() {
 		    .style("opacity", 0)
 		    .attr("d", lineFB);	 
 
-		// Add the valueline path.
 		svg.append("path")
 		    .data([data])
 		    .attr("class", "line")
@@ -281,7 +255,6 @@ function load() {
 		    .style("opacity", 0)
 		    .attr("d", lineGOOGL);	
 
-		// Add the valueline path.
 		svg.append("path")
 		    .data([data])
 		    .attr("class", "line")
@@ -289,7 +262,6 @@ function load() {
 		    .style("opacity", 0)
 		    .attr("d", lineHD);
 
-		// Add the valueline path.
 		svg.append("path")
 		    .data([data])
 		    .attr("class", "line")
@@ -297,7 +269,6 @@ function load() {
 		    .style("opacity", 0)
 		    .attr("d", lineJPM);
 
-		// Add the valueline path.
 		svg.append("path")
 		    .data([data])
 		    .attr("class", "line")
@@ -305,7 +276,6 @@ function load() {
 		    .style("opacity", 0)
 		    .attr("d", lineKO);
 
-		// Add the valueline path.
 		svg.append("path")
 		    .data([data])
 		    .attr("class", "line")
@@ -403,6 +373,7 @@ function load() {
             .call(yAxis)
             .style("font-size", "11px")
  		
+ 		// call the y axis title
 		svg.append("text")
 			.attr("class", "y-ax-title")
 		    .attr("x", -30)
@@ -411,6 +382,7 @@ function load() {
 		    .attr("text-anchor", "end")
 		    .text("Average price change");
 
+		// append space for the titles
 		svg.append("text")
 	    	.attr("dy", ".32em")
 	    	.attr("x", 495)
@@ -421,6 +393,7 @@ function load() {
 	    	.style("opacity", 1)
 	    	.text("Stock vs Stock");
 
+	    // append close button
 		svg.append("a")
 			.attr("xlink:href", "javascript:hideChart();")
 		    .append("rect")  
@@ -433,6 +406,7 @@ function load() {
 	    	.attr("ry", 10)
 		    .attr('class', 'closeBtn');
 
+		// append legenda
 		svg.append("rect")
 			.attr("x", 625)
 		    .attr("y", -32)
@@ -441,7 +415,6 @@ function load() {
 	    	.style("fill", "blue")
 	    	.attr("rx", 10)
 	    	.attr("ry", 10);
-
 
 		svg.append("rect")
 			.attr("x", 345)
@@ -452,7 +425,7 @@ function load() {
 	    	.attr("rx", 10)
 	    	.attr("ry", 10);
 
-		// draw text on the screen
+		// append X to close button
 		svg.append("text")
 		    .attr("x", 999.8)
 		    .attr("y", -22)
@@ -462,10 +435,6 @@ function load() {
 		    .attr("text-anchor", "middle")
 		    .style("pointer-events", "none")
 		    .text("X");
-
-
-
-
 
 	});
 		

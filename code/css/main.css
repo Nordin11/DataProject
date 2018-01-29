@@ -102,6 +102,11 @@ hr {
 }
 
 
+#legenda-container {
+	margin-top: 0px;
+	margin-bottom: -40px;
+}
+
 /* network style */
 .network-container {
 	max-width: 100%;
@@ -180,7 +185,6 @@ hr {
 	-ms-transform: rotate(-90deg);
 	-o-transform: rotate(-90deg);
 }
-
 
 .label {
 	font-size: 11px;
