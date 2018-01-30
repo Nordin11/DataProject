@@ -53,6 +53,9 @@
 <br />
 
 #### Mon 29 January:
+- Added a legenda to the network
+- Added comments to the code
+- Changed up repository
 <br />
 
 #### Tue 30 January:
