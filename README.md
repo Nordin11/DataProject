@@ -2,7 +2,7 @@
 Nordin Bouchrit <br />	
 11050608
 <br />
-Project Link: https://nordin11.github.io/DataProject/tree/master/code
+Project Link: https://nordin11.github.io/DataProject/code/index.html
 <br />
 ## Problem statement
 
