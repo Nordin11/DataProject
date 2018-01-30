@@ -21,7 +21,7 @@ The line graph gives the user an insight in the average price change of the two 
 ![](doc/linegraphpreview.png)<br />
 
 ### Remember!!
-This product doesn't serves as investment advise. It just tries to serve as a tool for gaining more insight in the financial system. You have to make your own conclusions and decisions.  <br />
+This product doesn't serve as investment advise. It just tries to serve as a tool for gaining more insight in the financial system. You have to make your own conclusions and decisions.  <br />
 
 ## Prequisities
 
