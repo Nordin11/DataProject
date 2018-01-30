@@ -5,8 +5,9 @@ This product serves as a tool for understanding the financial system at a basic 
 
 ## Technical design
 ### General 
-For achieving this product there are certain tools used. The D3 visualization tool is the most common tool that is used. This is used for the visualizations of the data. This tool is a Javascript library, therefore Javascript is used for the execution of the library. For the gathering and scraping of the data the tool Pandas is used. Via Pandas the data is scraped through the Yahoo Finance API. The data is manipulated via another tool called NumPy. These tools that are used for the data gathering are all executed with Python and Python is executed via Jupyter Notebook. For the interactions between the containers I used the jQuery library. And last but not least for the visualizations to actually run, a webserver is used. For this HTML5, CSS and Bootstrap is used.  
-### Where to find?
+For achieving this product there are certain tools used. The D3 visualization tool is the most common tool that is used. This is used for the visualizations of the data. This tool is a Javascript library, therefore Javascript is used for the execution of the library. For the gathering and scraping of the data the tool Pandas is used. Via Pandas the data is scraped through the Yahoo Finance API. The data is manipulated via another tool called NumPy. These tools that are used for the data gathering are all executed with Python and Python is executed via Jupyter Notebook. For the interactions between the containers I used the jQuery library. And last but not least for the visualizations to actually run, a webserver is used. For this HTML5, CSS and Bootstrap is used.
+![](doc/productoverview.png)  
+### Infrastructure
 #### Data Gathering
 As I stated, there are certain tools used for the gathering and manipulating of the data. Everything that has to do with the data gathering and manipulating can be found in the python map. This map is a children of the map named code. The price-data can be found in the data map, also a children of the map named code. For executing the python file, one has to run it through Jupyter Notebook. I also put a Jupyter Notebook file in the python map. 
 #### Data Visualization 
