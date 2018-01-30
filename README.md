@@ -26,18 +26,20 @@ This product doesn't serve as investment advise. It just tries to serve as a too
 ## Prequisities
 
 #### Data Sources 
+#### Tutorial 
 http://www.learndatasci.com/python-finance-part-yahoo-finance-api-pandas-matplotlib/ <br />
+#### Data gathering
 https://finance.yahoo.com/ <br />
 
 #### External Sources
 ##### Slider
-https://bl.ocks.org/Lulkafe/3832d628340038d9484fbd9edb705e01 <br />
+https://bl.ocks.org/Lulkafe/3832d628340038d9484fbd9edb705e01 
 ##### Network 
-https://bl.ocks.org/mbostock/4062045 <br />
+https://bl.ocks.org/mbostock/4062045 
 ##### Correlation matrix
-https://bl.ocks.org/arpitnarechania/caeba2e6579900ea12cb2a4eb157ce74 <br />
+https://bl.ocks.org/arpitnarechania/caeba2e6579900ea12cb2a4eb157ce74 
 ##### Line graph
-https://bl.ocks.org/d3noob/4db972df5d7efc7d611255d1cc6f3c4f <br />
+https://bl.ocks.org/d3noob/4db972df5d7efc7d611255d1cc6f3c4f 
 
 
 

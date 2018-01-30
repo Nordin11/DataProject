@@ -52,10 +52,15 @@ hr {
 	line-height: 2;
 }
 
-
 #about-content {
 	padding-top: 5px;
 	margin-bottom: 10px;
+}
+
+
+#about-footer {
+	line-height: 2;
+	font-size: 13px;
 }
 
 #close-button {
