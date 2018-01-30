@@ -41,6 +41,17 @@ https://bl.ocks.org/arpitnarechania/caeba2e6579900ea12cb2a4eb157ce74
 ##### Line graph
 https://bl.ocks.org/d3noob/4db972df5d7efc7d611255d1cc6f3c4f 
 
+#### Libraries
+##### jQuery
+https://jquery.com/
+##### Bootstrap
+https://getbootstrap.com/
+##### D3
+https://d3js.org/
+##### Pandas
+https://pandas.pydata.org/
+##### NumPy
+http://www.numpy.org/
 
 
 
