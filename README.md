@@ -9,7 +9,7 @@ Project Link: https://nordin11.github.io/DataProject/code/index.html
 Investing in stocks is becoming increasingly popular. Due to the complexity, this space is quite inaccesible for people without a financial background. There are no clear connections between the stocks and it seems to behave quite randomly. With this product I want to build a bridge over the knowledge gap by giving a go to insight in the financial system and trigger users to do further research in what they consume from this product.   
 
 ### The network
-The network serves as a overall view over the system. In this visualization one can see the correlation lines of the stocks in general, not in detail. With the radius of the nodes one can see which of the company's has the biggest sum of correlations, by this one can conclude which company has the most influence in the system. This has to serve as a helicopter view over the system.
+The network serves as a overall view over the system. In this visualization the user can see the correlation lines of the stocks in general, not in detail. With the radius of the nodes the user can see which of the company's has the biggest sum of correlations, by this the user can conclude which company has the most influence in the system. This has to serve as a helicopter view over the system.
 ![](doc/networkpreview.png)
 
 ### The correlation matrix

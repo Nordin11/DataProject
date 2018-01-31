@@ -1,7 +1,7 @@
 # Final Report
 
 ## The product
-This product serves as a tool for understanding the financial system at a basic level via three visualizations to trigger users to get interested in the financial system and getting the users to do further research in the findings that the product presents.
+This product serves as a tool for understanding the financial system at a basic level via three visualizations to trigger users to get interested in the financial system and getting the users to do further research on the findings that the product presents.
 
 ## Technical design
 ### General 

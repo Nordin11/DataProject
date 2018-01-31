@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[41]:
+# In[1]:
 
 from pandas_datareader import data
 import matplotlib.pyplot as plt
@@ -11,7 +11,7 @@ import json
 import io
 
 
-# In[42]:
+# In[2]:
 
 ## FINANCIAL INDUSTRY
 
@@ -45,11 +45,11 @@ close = close.dropna(axis=0, how='any')
 # Define the table as a matrix
 close = np.asmatrix(close)
 
-# Print the correlation matrix 
+# Print the FINANCE correlation matrix 
 print np.corrcoef(close, rowvar=False)
 
 
-# In[43]:
+# In[3]:
 
 ## TECH INDUSTRY
 
@@ -83,11 +83,11 @@ close = close.dropna(axis=0, how='any')
 # Define the table as a matrix
 close = np.asmatrix(close)
 
-# Print the correlation matrix
+# Print the TECH correlation matrix
 print np.corrcoef(close, rowvar=False)
 
 
-# In[44]:
+# In[4]:
 
 ## SERVICES
 
@@ -121,11 +121,11 @@ close = close.dropna(axis=0, how='any')
 # Define the table as a matrix
 close = np.asmatrix(close)
 
-# Print the correlation matrix
+# Print the SERVICES correlation matrix
 print np.corrcoef(close, rowvar=False)
 
 
-# In[45]:
+# In[5]:
 
 ## BASIC MATERIALS
 
@@ -159,11 +159,11 @@ close = close.dropna(axis=0, how='any')
 # Define the table as a matrix
 close = np.asmatrix(close)
 
-# Print the correlation matrix
+# Print the MATERIALS correlation matrix
 print np.corrcoef(close, rowvar=False)
 
 
-# In[46]:
+# In[6]:
 
 ## CONSUMER GOODS
 
@@ -197,11 +197,11 @@ close = close.dropna(axis=0, how='any')
 # Define the table as a matrix
 close = np.asmatrix(close)
 
-# Print the correlation matrix
+# Print the GOODS correlation matrix
 print np.corrcoef(close, rowvar=False)
 
 
-# In[47]:
+# In[45]:
 
 ## ALL INDUSTRIES
 
@@ -243,11 +243,16 @@ close = close.dropna(axis=0, how='any')
 # Define the table as a matrix
 close = np.matrix(close)
 
-# Print the correlation matrix
-print np.corrcoef(close, rowvar=False)
+# Define and print the correlation matrix in absolute values
+close = np.corrcoef(close, rowvar=False)
+a = np.zeros(len(AllTickers))
+for i in range(len(AllTickers)):    
+    a[i] = np.sum(abs(close[i]))
+        
+print a - 1
 
 
-# In[49]:
+# In[8]:
 
 ## ALL INDUSTRIES
 
@@ -257,7 +262,6 @@ techTickers = ['GOOGL','MSFT','FB','T','VZ']
 servicesTickers = ['AMZN','BABA','WMT','HD','CMCSA']
 basicTickers = ['XOM','RDS-B','PTR','CVX','BP']
 consumerTickers = ['AAPL','PG','BUD','KO','TM']
-
 
 # group all tickers together
 AllTickers = ['JPM','BAC','WFC','V','C','GOOGL','MSFT','FB','T','VZ','AMZN','BABA','WMT','HD','CMCSA','XOM','RDS-B','PTR','CVX','BP','AAPL','PG','BUD','KO','TM']
@@ -292,14 +296,13 @@ close = np.matrix(close)
 # Print the correlation matrix
 c = np.corrcoef(close, rowvar=False)
 
-
 # manipulate the data so that I can output the proper format for the network
 nodes = []
 
-# define the different industries by seperating it in different groups variable
+# define the different industries by seperating it in different groups 
 for i in range(len(AllTickers)):
     if i < len(financeTickers):
-        
+    
         nodes.append({"id":AllTickers[i], "group": 1})
     
     elif i < len(financeTickers) + len(techTickers):
@@ -307,14 +310,15 @@ for i in range(len(AllTickers)):
         nodes.append({"id":AllTickers[i], "group": 2})
         
     elif i < len(financeTickers) + len(techTickers) + len(servicesTickers):
+        
         nodes.append({"id":AllTickers[i], "group": 3})
         
     elif i < len(financeTickers) + len(techTickers) + len(servicesTickers) + len(basicTickers):
         
         nodes.append({"id":AllTickers[i], "group": 4})
         
-    else: 
-    
+    else:
+        
         nodes.append({"id":AllTickers[i], "group": 5})
         
 links = []
@@ -322,7 +326,7 @@ links = []
 # Go through the stocks and link the stocks and connections with eachother to the correlation matrix. 
 for i in range(len(AllTickers)):
     for j in range(1,len(AllTickers) - i):
-        links.append({"source" : AllTickers[i],"target" : AllTickers[i + j],"value" : c[i,j]})
+        links.append({"source" : AllTickers[i],"target" : AllTickers[i + j],"value" : c[i,i+j]})
 
 
 # bring together the two dictionaries into one big dict
@@ -337,7 +341,7 @@ network = json.dumps(json_data)
 print network
 
 
-# In[40]:
+# In[29]:
 
 ## ALL INDUSTRIES
 
@@ -375,10 +379,8 @@ close = close.reindex(all_weekdays)
 # Drop the dates where one of the companies wasn't public yet 
 close = close.dropna(axis=0, how='any')
 
-# normalize the data
-for i in range(len(AllTickers)):
-    close[AllTickers[i]] = close[AllTickers[i]]/np.mean(close[AllTickers[i]])
-    
-# Export the table with price history of every analyzed stock to a csv
-close.to_csv('price_history.csv',  encoding='utf-8')
+# normalize de data by defining relative gain. starting at the first price 1.0 
+close = close/close.iloc[0, :]
+
+close.to_csv('price_relative_gain.csv',  encoding='utf-8')
 
