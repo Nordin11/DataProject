@@ -3,7 +3,7 @@ Nordin Bouchrit <br />
 11050608
 <br />
 Project Link: https://nordin11.github.io/DataProject/code/index.html
-Product Video: https://www.youtube.com/watch?v=Iy9Yd-hLwjc&feature=youtu.be
+Product Video: https://www.youtube.com/watch?v=Iy9Yd-hLwjc&feature=youtu.be<br/>
 <br />
 ## The product
 
