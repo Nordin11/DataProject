@@ -59,10 +59,15 @@
 <br />
 
 #### Tue 30 January:
+- Wrote final report
+- started with the script of product video
 <br />
 
 #### Wed 31 January: 
+- Finished script of product video
+- Added a source to the product
 <br />
 
 #### Thu 1 February:
+- Recorded and uploaded the product video
 <br />
