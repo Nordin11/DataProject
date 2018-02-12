@@ -3,8 +3,8 @@ Nordin Bouchrit <br />
 11050608
 <br />
 Project Link: https://nordin11.github.io/DataProject/code/index.html<br/>
-Product Video: https://www.youtube.com/watch?v=Iy9Yd-hLwjc&feature=youtu.be
-<br />
+Product Video: https://www.youtube.com/watch?v=Iy9Yd-hLwjc
+
 ## The product
 
 Investing in stocks is becoming increasingly popular. Due to the complexity, this space is quite inaccesible for people without a financial background. There are no clear connections between the stocks and it seems to behave quite randomly. With this product I want to build a bridge over the knowledge gap by giving a go to insight in the financial system and trigger users to do further research in what they consume from this product.   
